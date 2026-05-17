@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Premium Light Theme (Earth & Field tones) */
+  --background: 120 10% 98%;      /* Very light off-white/sage tint */
+  --foreground: 120 20% 10%;      /* Dark forest charcoal */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 120 20% 10%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 120 20% 10%;
+  
+  --primary: 142.1 76.2% 36.3%;   /* Rich Agricultural Green */
+  --primary-foreground: 355.7 100% 97.3%;
+  
+  --secondary: 120 12% 92%;       /* Muted Sage */
+  --secondary-foreground: 120 15% 25%;
+  
+  --muted: 120 10% 96%;
+  --muted-foreground: 240 3.8% 46.1%;
+  
+  --accent: 142.1 76.2% 36.3%;
+  --accent-foreground: 240 5.9% 10%;
+  
+  --destructive: 0 84.2% 60.2%;   /* Premium Crimson */
+  --destructive-foreground: 0 0% 98%;
+  
+  --warning: 37.9 90.2% 49.8%;     /* Rich Amber */
+  --warning-foreground: 0 0% 100%;
+  
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 142.1 76.2% 36.3%;
+  --radius: 0.75rem;
+
+  /* Traffic Light specific variables */
+  --status-green: 142.1 76.2% 36.3%;
+  --status-green-bg: 142.1 80% 95%;
+  --status-amber: 37.9 90.2% 49.8%;
+  --status-amber-bg: 38 95% 94%;
+  --status-red: 0 84.2% 60.2%;
+  --status-red-bg: 0 95% 95%;
+  --status-grey: 240 5.9% 90%;
+  --status-grey-bg: 240 5.9% 96%;
+}
+
+.dark {
+  /* Premium Dark Theme (Deep Soil & Neon Forest) */
+  --background: 120 15% 5.5%;      /* Ultra dark forest-tinted charcoal */
+  --foreground: 120 10% 98%;       /* Light sage-tinted white */
+  
+  --card: 120 15% 7.5%;            /* Slightly lighter card */
+  --card-foreground: 120 10% 98%;
+  
+  --popover: 120 15% 7.5%;
+  --popover-foreground: 120 10% 98%;
+  
+  --primary: 142.1 70.6% 45.3%;   /* Bright Neon Green */
+  --primary-foreground: 120 15% 5.5%;
+  
+  --secondary: 120 10% 15%;
+  --secondary-foreground: 120 10% 85%;
+  
+  --muted: 120 10% 12%;
+  --muted-foreground: 240 5% 64.9%;
+  
+  --accent: 142.1 70.6% 45.3%;
+  --accent-foreground: 0 0% 98%;
+  
+  --destructive: 0 62.8% 50.6%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --warning: 37.9 90% 55%;
+  --warning-foreground: 120 15% 5.5%;
+  
+  --border: 120 10% 18%;
+  --input: 120 10% 18%;
+  --ring: 142.1 70.6% 45.3%;
+
+  /* Traffic Light dark specific variables */
+  --status-green: 142.1 70.6% 45.3%;
+  --status-green-bg: 142.1 40% 12%;
+  --status-amber: 37.9 90% 55%;
+  --status-amber-bg: 38 60% 12%;
+  --status-red: 0 62.8% 50.6%;
+  --status-red-bg: 0 50% 13%;
+  --status-grey: 120 10% 18%;
+  --status-grey-bg: 120 10% 12%;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-status-green: hsl(var(--status-green));
+  --color-status-green-bg: hsl(var(--status-green-bg));
+  --color-status-amber: hsl(var(--status-amber));
+  --color-status-amber-bg: hsl(var(--status-amber-bg));
+  --color-status-red: hsl(var(--status-red));
+  --color-status-red-bg: hsl(var(--status-red-bg));
+  --color-status-grey: hsl(var(--status-grey));
+  --color-status-grey-bg: hsl(var(--status-grey-bg));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom premium transitions and glassmorphism components */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(15, 25, 15, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile-first tap target micro-interactions */
+.tap-target {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tap-target:active {
+  transform: scale(0.96);
+}
+
+/* Custom Scrollbar for sleek reporting tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
